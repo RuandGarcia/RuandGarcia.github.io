@@ -52,13 +52,18 @@ h1,h2,h3{font-family:var(--display);color:var(--tinta);line-height:1.05;letter-s
 .botao:hover{border-color:var(--sinal);color:var(--sinal)}
 .botao.cheio:hover{background:var(--sinal);color:#fff}
 
-.campo{position:relative}
-.campo svg{width:100%;height:auto}
-.campo .leg{display:flex;justify-content:space-between;margin-top:14px;font-size:.92rem}
-.campo .leg b{font:700 1.5rem var(--display);color:var(--tinta);display:block}
-.campo .leg .s b{color:var(--sinal)}
-.ponto{fill:var(--sinal);transition:fill 1.2s ease}
-.ponto.ruido{fill:var(--ruido)}
+.ficha{background:var(--papel);border:1px solid var(--linha);border-radius:18px;padding:30px 32px}
+.ficha .ini{width:64px;height:64px;border-radius:50%;background:var(--tinta);color:#fff;display:grid;place-items:center;font:800 1.4rem var(--display);margin-bottom:20px}
+.ficha dl{display:grid;grid-template-columns:auto 1fr;gap:12px 20px}
+.ficha dt{color:var(--prata);font-size:.92rem;padding-top:1px}
+.ficha dd{color:var(--tinta);font-weight:500}
+
+.sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.sobre-grid p{margin-bottom:16px;max-width:60ch}
+.sobre-grid h3{font-size:1.2rem;margin-bottom:14px}
+.valores{list-style:none;padding:0}
+.valores li{padding:14px 0;border-bottom:1px solid var(--linha)}
+.valores li b{color:var(--tinta);display:block;font-weight:600}
 
 /* seções */
 section{padding:72px 0;border-top:1px solid var(--linha)}
@@ -117,8 +122,9 @@ section{padding:72px 0;border-top:1px solid var(--linha)}
 footer{background:var(--tinta);color:#6E7D92;font-size:.88rem;padding:0 0 32px}
 
 @media (max-width:900px){
-  .hero{grid-template-columns:1fr;padding-block:24px 64px}
+  .hero{grid-template-columns:1fr;padding-block:36px 64px}
   .destaque{grid-template-columns:1fr}
+  .sobre-grid{grid-template-columns:1fr;gap:28px}
   .destaque img{min-height:200px;max-height:260px}
   .proj{grid-template-columns:1fr}
   .proj figure{order:-1}
@@ -141,6 +147,7 @@ footer{background:var(--tinta);color:#6E7D92;font-size:.88rem;padding:0 0 32px}
 <header class="wrap topo">
   <a class="marca" href="#">Ruan Garcia</a>
   <nav aria-label="Seções">
+    <a class="opc" href="#sobre">Sobre</a>
     <a href="#projetos">Projetos</a>
     <a class="opc" href="#stack">Stack</a>
     <a class="opc" href="#trajetoria">Trajetória</a>
@@ -153,21 +160,46 @@ footer{background:var(--tinta);color:#6E7D92;font-size:.88rem;padding:0 0 32px}
   <div>
     <h1>Ruan Garcia</h1>
     <p class="tese">Separo o sinal do ruído para transformar dado bruto em decisão.</p>
-    <p class="sobre">Analista de Informações Gerenciais na Cogna Educação e estudante de Data Science na FIAP. Trabalho de ponta a ponta: ETL, modelagem dimensional, machine learning e agentes de IA que ajudam pessoas a agir mais rápido.</p>
+    <p class="sobre">Trabalho com dados de ponta a ponta: do ETL e da modelagem dimensional até modelos de machine learning e agentes de IA que ajudam pessoas a agir mais rápido.</p>
     <div class="acoes">
-      <a class="botao cheio" href="#projetos">Ver projetos</a>
+      <a class="botao cheio" href="#sobre">Conhecer meu trabalho</a>
       <a class="botao" href="https://www.linkedin.com/in/ruan-garcia-55180a2a4" target="_blank" rel="noopener">LinkedIn</a>
       <a class="botao" href="https://github.com/RuandGarcia" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
-  <figure class="campo" aria-label="Ilustração: de 855 alarmes por dia, o filtro do LocalOps deixa 384 que precisam de uma pessoa">
-    <svg id="pontos" viewBox="0 0 540 300" role="img" aria-hidden="true"></svg>
-    <figcaption class="leg">
-      <span><b>855</b>alarmes por dia</span>
-      <span class="s"><b>384</b>precisam de uma pessoa</span>
-    </figcaption>
-  </figure>
+  <aside class="ficha" aria-label="Resumo">
+    <div class="ini" aria-hidden="true">RG</div>
+    <dl>
+      <dt>Hoje</dt><dd>Analista de Informações Gerenciais na Cogna Educação</dd>
+      <dt>Estudo</dt><dd>Data Science na FIAP, conclusão em dez/2026</dd>
+      <dt>Foco</dt><dd>ETL, data warehouse, machine learning e IA</dd>
+      <dt>Destaque</dt><dd>2º lugar no FIAP NEXT 2026</dd>
+      <dt>Base</dt><dd>São Paulo, SP</dd>
+    </dl>
+  </aside>
 </div>
+
+<section id="sobre">
+  <div class="wrap">
+    <div class="cab"><h2>Sobre mim</h2></div>
+    <div class="sobre-grid">
+      <div>
+        <p>Trabalho com dados para que as pessoas decidam melhor e mais rápido. Na Cogna Educação, cuido de dados financeiros e contábeis, construo rotinas em Python, SQL e SAS, monto relatórios em Power BI e estou levando esses processos para o Databricks.</p>
+        <p>Na FIAP, aprofundei a parte técnica: modelagem de data warehouse, arquitetura de Big Data, machine learning e agentes de IA. Os projetos abaixo nasceram de desafios reais propostos por empresas e pelo curso, e em todos eu procuro o mesmo: entender o problema antes de escolher a ferramenta.</p>
+        <p>Estou buscando oportunidades em análise de dados, engenharia de dados e IA, onde eu possa juntar a visão de negócio que ganhei no financeiro com a parte técnica que venho construindo.</p>
+      </div>
+      <div>
+        <h3>Como eu trabalho</h3>
+        <ul class="valores">
+          <li><b>Problema antes da ferramenta</b>Começo pela pergunta de negócio e pelo que alguém vai decidir com o resultado.</li>
+          <li><b>Dado confiável</b>Trato, documento e audito cada etapa, do arquivo bruto à tabela final.</li>
+          <li><b>Número com explicação</b>Mostro o porquê de cada resultado, e também os limites do modelo.</li>
+          <li><b>Comunicação clara</b>Traduzo análise em recomendação, como no pitch que levou o LocalOps ao 2º lugar.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section id="projetos">
   <div class="wrap">
@@ -298,31 +330,5 @@ footer{background:var(--tinta);color:#6E7D92;font-size:.88rem;padding:0 0 32px}
 </section>
 </main>
 <footer><div class="wrap">Ruan Garcia, São Paulo.</div></footer>
-
-<script>
-(function(){
-  var svg=document.getElementById('pontos'); if(!svg) return;
-  var cols=45, rows=19, total=cols*rows; // 855 pontos
-  var manter=384, ns='http://www.w3.org/2000/svg';
-  var dx=540/cols, dy=300/rows, r=Math.min(dx,dy)*0.32;
-  // escolha determinística dos 384 "sinais"
-  var seed=7; function rnd(){seed=(seed*16807)%2147483647;return seed/2147483647;}
-  var idx=[]; for(var i=0;i<total;i++) idx.push(i);
-  for(var j=total-1;j>0;j--){var k=Math.floor(rnd()*(j+1));var t=idx[j];idx[j]=idx[k];idx[k]=t;}
-  var sinal={}; for(var m=0;m<manter;m++) sinal[idx[m]]=true;
-  var frag=document.createDocumentFragment(), ruidos=[];
-  for(var n=0;n<total;n++){
-    var c=document.createElementNS(ns,'circle');
-    c.setAttribute('cx',(n%cols+.5)*dx); c.setAttribute('cy',(Math.floor(n/cols)+.5)*dy);
-    c.setAttribute('r',r); c.setAttribute('class','ponto');
-    if(!sinal[n]) ruidos.push(c);
-    frag.appendChild(c);
-  }
-  svg.appendChild(frag);
-  var reduzir=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function filtrar(){ruidos.forEach(function(c){c.classList.add('ruido');});}
-  if(reduzir){filtrar();} else {setTimeout(filtrar,700);}
-})();
-</script>
 </body>
 </html>
