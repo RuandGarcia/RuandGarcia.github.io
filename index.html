@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ruan Garcia · Dados e Data Science</title>
+<meta name="description" content="Portfólio de Ruan Garcia: analista de dados, estudante de Data Science na FIAP. ETL, data warehouse, machine learning e agentes de IA.">
+<meta property="og:title" content="Ruan Garcia · Dados e Data Science">
+<meta property="og:description" content="ETL, data warehouse, machine learning e agentes de IA. 2º lugar no FIAP NEXT 2026 com o LocalOps.">
+<meta property="og:image" content="https://ruandgarcia.github.io/img/localops.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --fundo:#F2F5F9;
+  --papel:#FFFFFF;
+  --tinta:#0E1A2B;
+  --texto:#3A4A5E;
+  --sinal:#1D5FD1;
+  --ruido:#C9D3E0;
+  --linha:#DCE3EC;
+  --prata:#8E9AAB;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --corpo:"Instrument Sans", "Segoe UI", system-ui, sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--fundo);color:var(--texto);font:400 1.0625rem/1.6 var(--corpo);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--sinal)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--sinal);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--display);color:var(--tinta);line-height:1.05;letter-spacing:-.02em}
+
+/* topo */
+.topo{display:flex;justify-content:space-between;align-items:center;padding-block:22px}
+.marca{font:700 1.05rem var(--display);color:var(--tinta);text-decoration:none}
+.topo nav{display:flex;gap:22px}
+.topo nav a{color:var(--texto);text-decoration:none;font-weight:500;font-size:.95rem}
+.topo nav a:hover{color:var(--sinal)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding-block:56px 88px}
+.hero h1{font-size:clamp(3.2rem,8vw,6.4rem);font-weight:800}
+.hero .tese{font:500 clamp(1.3rem,2.4vw,1.75rem)/1.3 var(--display);color:var(--tinta);margin:22px 0 18px;max-width:22ch}
+.hero p.sobre{max-width:52ch}
+.acoes{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.botao{display:inline-block;padding:13px 22px;border-radius:999px;font-weight:600;text-decoration:none;border:1.5px solid var(--tinta);color:var(--tinta)}
+.botao.cheio{background:var(--tinta);color:#fff}
+.botao:hover{border-color:var(--sinal);color:var(--sinal)}
+.botao.cheio:hover{background:var(--sinal);color:#fff}
+
+.campo{position:relative}
+.campo svg{width:100%;height:auto}
+.campo .leg{display:flex;justify-content:space-between;margin-top:14px;font-size:.92rem}
+.campo .leg b{font:700 1.5rem var(--display);color:var(--tinta);display:block}
+.campo .leg .s b{color:var(--sinal)}
+.ponto{fill:var(--sinal);transition:fill 1.2s ease}
+.ponto.ruido{fill:var(--ruido)}
+
+/* seções */
+section{padding:72px 0;border-top:1px solid var(--linha)}
+.cab{display:flex;justify-content:space-between;align-items:baseline;gap:24px;margin-bottom:36px;flex-wrap:wrap}
+.cab h2{font-size:clamp(2rem,4vw,2.8rem);font-weight:700}
+.cab p{max-width:46ch}
+
+/* destaque LocalOps */
+.destaque{display:grid;grid-template-columns:1.2fr 1fr;background:var(--tinta);color:#C9D3E0;border-radius:20px;overflow:hidden}
+.destaque img{height:100%;object-fit:cover;min-height:320px}
+.destaque .txt{padding:40px 40px 36px}
+.premio{display:inline-flex;align-items:center;gap:10px;font-weight:600;color:#fff;margin-bottom:18px}
+.medalha{width:30px;height:30px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#F4F6F9,#A9B4C3 55%,#7D8898);display:grid;place-items:center;font:800 .85rem var(--display);color:var(--tinta)}
+.destaque h3{color:#fff;font-size:2.4rem;margin-bottom:12px}
+.destaque p{max-width:46ch}
+.numeros{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:26px 0;padding:20px 0;border-top:1px solid #2A3A52;border-bottom:1px solid #2A3A52}
+.numeros b{display:block;font:700 1.7rem var(--display);color:#fff}
+.numeros span{font-size:.85rem;line-height:1.35;display:block}
+.destaque a{color:#8FB6FF;font-weight:600}
+.destaque .stack{font-size:.9rem;margin-top:14px;color:#8E9AAB}
+
+/* lista de projetos */
+.projetos{display:grid;gap:20px;margin-top:20px}
+.proj{display:grid;grid-template-columns:1fr 300px;gap:32px;align-items:center;background:var(--papel);border:1px solid var(--linha);border-radius:14px;padding:28px 28px 28px 32px}
+.proj h3{font-size:1.55rem;margin-bottom:8px}
+.proj .res{color:var(--tinta);font-weight:600;margin-bottom:8px}
+.proj .stack{font-size:.9rem;color:var(--prata);margin:12px 0 14px}
+.proj a{font-weight:600}
+.proj figure{border-radius:10px;overflow:hidden;border:1px solid var(--linha);background:#fff;aspect-ratio:4/3}
+.proj figure img{width:100%;height:100%;object-fit:contain;padding:10px}
+.proj figure.tela{background:#0B141A}
+.proj figure.tela img{padding:0;object-fit:cover;object-position:center top}
+.mais{margin-top:22px}
+.mais a{font-weight:600}
+
+/* stack */
+.grupos{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+.grupos h3{font-size:1.15rem;margin-bottom:12px}
+.grupos ul{list-style:none;padding:0}
+.grupos li{padding:7px 0;border-bottom:1px solid var(--linha)}
+
+/* trajetória */
+.linha-tempo{list-style:none;padding:0;display:grid;gap:0;max-width:760px}
+.linha-tempo li{display:grid;grid-template-columns:150px 1fr;gap:24px;padding:20px 0;border-bottom:1px solid var(--linha)}
+.linha-tempo .quando{font-weight:600;color:var(--tinta)}
+.linha-tempo h3{font-size:1.2rem;margin-bottom:4px}
+
+/* contato */
+.contato{background:var(--tinta);color:#C9D3E0;border-top:none}
+.contato h2{color:#fff;font-size:clamp(2.2rem,5vw,3.6rem);max-width:16ch}
+.contato p{margin:16px 0 28px;max-width:48ch}
+.contato .botao{border-color:#fff;color:#fff}
+.contato .botao.cheio{background:#fff;color:var(--tinta)}
+.contato .botao:hover{border-color:#8FB6FF;color:#8FB6FF}
+.contato .botao.cheio:hover{background:#8FB6FF;color:var(--tinta)}
+footer{background:var(--tinta);color:#6E7D92;font-size:.88rem;padding:0 0 32px}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;padding-block:24px 64px}
+  .destaque{grid-template-columns:1fr}
+  .destaque img{min-height:200px;max-height:260px}
+  .proj{grid-template-columns:1fr}
+  .proj figure{order:-1}
+  .grupos{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:560px){
+  .wrap{padding:0 16px}
+  .topo nav{gap:14px}
+  .topo nav a.opc{display:none}
+  .destaque .txt{padding:28px 22px}
+  .numeros{grid-template-columns:1fr;gap:12px}
+  .proj{padding:20px}
+  .grupos{grid-template-columns:1fr}
+  .linha-tempo li{grid-template-columns:1fr;gap:4px}
+}
+</style>
+</head>
+<body>
+
+<header class="wrap topo">
+  <a class="marca" href="#">Ruan Garcia</a>
+  <nav aria-label="Seções">
+    <a href="#projetos">Projetos</a>
+    <a class="opc" href="#stack">Stack</a>
+    <a class="opc" href="#trajetoria">Trajetória</a>
+    <a href="#contato">Contato</a>
+  </nav>
+</header>
+
+<main>
+<div class="wrap hero">
+  <div>
+    <h1>Ruan Garcia</h1>
+    <p class="tese">Separo o sinal do ruído para transformar dado bruto em decisão.</p>
+    <p class="sobre">Analista de Informações Gerenciais na Cogna Educação e estudante de Data Science na FIAP. Trabalho de ponta a ponta: ETL, modelagem dimensional, machine learning e agentes de IA que ajudam pessoas a agir mais rápido.</p>
+    <div class="acoes">
+      <a class="botao cheio" href="#projetos">Ver projetos</a>
+      <a class="botao" href="https://www.linkedin.com/in/ruan-garcia-55180a2a4" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="botao" href="https://github.com/RuandGarcia" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+  <figure class="campo" aria-label="Ilustração: de 855 alarmes por dia, o filtro do LocalOps deixa 384 que precisam de uma pessoa">
+    <svg id="pontos" viewBox="0 0 540 300" role="img" aria-hidden="true"></svg>
+    <figcaption class="leg">
+      <span><b>855</b>alarmes por dia</span>
+      <span class="s"><b>384</b>precisam de uma pessoa</span>
+    </figcaption>
+  </figure>
+</div>
+
+<section id="projetos">
+  <div class="wrap">
+    <div class="cab">
+      <h2>Projetos</h2>
+      <p>Trabalhos feitos na FIAP com dados reais e casos de negócio. O código e a documentação de cada um estão no GitHub.</p>
+    </div>
+
+    <article class="destaque">
+      <img src="img/localops.jpg" alt="Tela de abertura do LocalOps: grade de pontos representando 855 alarmes por dia no plantão da Locaweb" loading="lazy">
+      <div class="txt">
+        <span class="premio"><span class="medalha" aria-hidden="true">2</span>2º lugar no FIAP NEXT 2026</span>
+        <h3>LocalOps</h3>
+        <p>Copiloto de AIOps para o Challenge Locaweb. Filtra o ruído de alarmes no momento em que abrem, prevê a carga do plantão para amanhã e para a semana e explica cada número. Apresentei o pitch no estande, com o produto rodando sobre dados reais.</p>
+        <div class="numeros">
+          <div><b>0,916</b><span>AUC do filtro de ruído</span></div>
+          <div><b>−55%</b><span>na fila diária de alarmes</span></div>
+          <div><b>95,3%</b><span>do que precisa de ação mantido</span></div>
+        </div>
+        <a href="https://github.com/RuandGarcia/LocalOps" target="_blank" rel="noopener">Ver no GitHub</a>
+        <p class="stack">Python, scikit-learn, SHAP, FastAPI, React</p>
+      </div>
+    </article>
+
+    <div class="projetos">
+      <article class="proj">
+        <div>
+          <h3>Data Warehouse</h3>
+          <p class="res">Do modelo estrela ao snowflake, publicado em nuvem e carregado por ETL.</p>
+          <p>Três etapas de modelagem dimensional para um e-commerce: DW de vendas e estoque com três fatos, data mart de satisfação com a entrega e versão snowflake com 17 tabelas, escrita para Oracle e SQL Server. Banco criado por Azure CLI e AWS RDS, com trigger de auditoria em PL/SQL.</p>
+          <p class="stack">SQL, Oracle, SQL Server, Azure, AWS RDS, Python</p>
+          <a href="https://github.com/RuandGarcia/melhores-compras-data-warehouse" target="_blank" rel="noopener">Ver no GitHub</a>
+        </div>
+        <figure><img src="img/dw.jpg" alt="Diagrama do modelo snowflake com tabela fato e dimensões" loading="lazy"></figure>
+      </article>
+
+      <article class="proj">
+        <div>
+          <h3>Centros de retirada</h3>
+          <p class="res">Reconhecimento facial com 25 de 25 acertos e K-Means para decidir quantos centros construir.</p>
+          <p>O box reconhece o cliente com redes pré-treinadas (YuNet e SFace) e nega o acesso abaixo do limiar de similaridade. Para a logística, comparei quatro algoritmos de clusterização e cheguei a 5 centros, com o valor que cada um passa a atender.</p>
+          <p class="stack">Python, OpenCV, scikit-learn</p>
+          <a href="https://github.com/RuandGarcia/melhores-compras-centros-retirada" target="_blank" rel="noopener">Ver no GitHub</a>
+        </div>
+        <figure><img src="img/clusters.jpg" alt="Mapa com cinco grupos de entregas e a posição de cada centro de retirada" loading="lazy"></figure>
+      </article>
+
+      <article class="proj">
+        <div>
+          <h3>WorkBalance AI</h3>
+          <p class="res">Um agente no WhatsApp que organiza a agenda para prevenir burnout.</p>
+          <p>O agente lê e ajusta o Google Calendar, sugere pausas e aponta sobrecarga pela própria agenda. Na análise de dados, o suporte da liderança apareceu como o principal fator de proteção.</p>
+          <p class="stack">n8n, OpenAI API, Google Calendar, Redis, Python</p>
+          <a href="https://github.com/RuandGarcia/workbalance-ai" target="_blank" rel="noopener">Ver no GitHub</a>
+        </div>
+        <figure class="tela"><img src="img/workbalance.jpg" alt="Conversa com o agente no WhatsApp organizando os compromissos do dia" loading="lazy"></figure>
+      </article>
+
+      <article class="proj">
+        <div>
+          <h3>Vendas e marketing</h3>
+          <p class="res">Regressão com R² de 0,97 para descobrir qual mídia dá mais retorno.</p>
+          <p>Separar o gasto por mídia levou o modelo de 0,32 para 0,95 de R². Google e Instagram rendem cerca de 4 vezes o retorno da TV por real investido. No mesmo projeto, tratei 250 mil vendas e montei um painel para a área comercial.</p>
+          <p class="stack">Python, pandas, scikit-learn, Matplotlib</p>
+          <a href="https://github.com/RuandGarcia/melhores-compras-vendas-marketing" target="_blank" rel="noopener">Ver no GitHub</a>
+        </div>
+        <figure><img src="img/roi.jpg" alt="Gráfico de barras do retorno marginal por mídia" loading="lazy"></figure>
+      </article>
+
+      <article class="proj">
+        <div>
+          <h3>Oracle PL/SQL</h3>
+          <p class="res">Cursores e stored procedure para consolidar os chamados do SAC.</p>
+          <p>Consultas com JOIN, carga de uma tabela-resumo com cursor explícito e uma procedure que pode ser reprocessada, com tratamento de erros. Fechei com uma análise da demanda do SAC por dia da semana.</p>
+          <p class="stack">Oracle, PL/SQL, Python</p>
+          <a href="https://github.com/RuandGarcia/melhores-compras-oracle-plsql" target="_blank" rel="noopener">Ver no GitHub</a>
+        </div>
+        <figure><img src="img/plsql.jpg" alt="Gráfico de ocorrências do SAC por dia da semana" loading="lazy"></figure>
+      </article>
+    </div>
+
+    <p class="mais">Também no GitHub: <a href="https://github.com/RuandGarcia/melhores-compras-big-data-architecture" target="_blank" rel="noopener">arquitetura de Big Data</a> e <a href="https://github.com/RuandGarcia/melhores-compras-kdd-persona" target="_blank" rel="noopener">KDD e persona</a>.</p>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="wrap">
+    <div class="cab"><h2>Stack</h2></div>
+    <div class="grupos">
+      <div><h3>Dados e análise</h3><ul><li>Python e pandas</li><li>SQL</li><li>SAS</li><li>Estatística</li></ul></div>
+      <div><h3>Engenharia de dados</h3><ul><li>Databricks</li><li>Oracle e PL/SQL</li><li>SQL Server</li><li>Modelagem dimensional</li></ul></div>
+      <div><h3>Machine learning e IA</h3><ul><li>scikit-learn</li><li>OpenCV</li><li>SHAP</li><li>Agentes com n8n e OpenAI</li></ul></div>
+      <div><h3>Nuvem e visualização</h3><ul><li>Azure</li><li>AWS</li><li>Power BI</li><li>Matplotlib e Seaborn</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="trajetoria">
+  <div class="wrap">
+    <div class="cab"><h2>Trajetória</h2></div>
+    <ol class="linha-tempo">
+      <li>
+        <span class="quando">Out 2026</span>
+        <div><h3>2º lugar no FIAP NEXT 2026</h3><p>Com o LocalOps, no Challenge Locaweb. Responsável pelo pitch.</p></div>
+      </li>
+      <li>
+        <span class="quando">Fev 2025 – Dez 2026</span>
+        <div><h3>Tecnólogo em Data Science, FIAP</h3><p>Projetos práticos em banco de dados, data warehouse, Big Data, machine learning e IA.</p></div>
+      </li>
+      <li>
+        <span class="quando">Nov 2024 – hoje</span>
+        <div><h3>Analista de Informações Gerenciais, Cogna Educação</h3><p>Dados financeiros e contábeis com Python, SQL, SAS e Power BI. Migração de rotinas para o Databricks.</p></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section id="contato" class="contato">
+  <div class="wrap">
+    <h2>Vamos conversar sobre dados?</h2>
+    <p>Estou aberto a oportunidades em análise de dados, engenharia de dados e IA. O jeito mais rápido de falar comigo é pelo LinkedIn ou por e-mail.</p>
+    <div class="acoes">
+      <a class="botao cheio" href="https://www.linkedin.com/in/ruan-garcia-55180a2a4" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="botao" href="mailto:ruandg234@gmail.com">ruandg234@gmail.com</a>
+      <a class="botao" href="https://github.com/RuandGarcia" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</section>
+</main>
+<footer><div class="wrap">Ruan Garcia, São Paulo.</div></footer>
+
+<script>
+(function(){
+  var svg=document.getElementById('pontos'); if(!svg) return;
+  var cols=45, rows=19, total=cols*rows; // 855 pontos
+  var manter=384, ns='http://www.w3.org/2000/svg';
+  var dx=540/cols, dy=300/rows, r=Math.min(dx,dy)*0.32;
+  // escolha determinística dos 384 "sinais"
+  var seed=7; function rnd(){seed=(seed*16807)%2147483647;return seed/2147483647;}
+  var idx=[]; for(var i=0;i<total;i++) idx.push(i);
+  for(var j=total-1;j>0;j--){var k=Math.floor(rnd()*(j+1));var t=idx[j];idx[j]=idx[k];idx[k]=t;}
+  var sinal={}; for(var m=0;m<manter;m++) sinal[idx[m]]=true;
+  var frag=document.createDocumentFragment(), ruidos=[];
+  for(var n=0;n<total;n++){
+    var c=document.createElementNS(ns,'circle');
+    c.setAttribute('cx',(n%cols+.5)*dx); c.setAttribute('cy',(Math.floor(n/cols)+.5)*dy);
+    c.setAttribute('r',r); c.setAttribute('class','ponto');
+    if(!sinal[n]) ruidos.push(c);
+    frag.appendChild(c);
+  }
+  svg.appendChild(frag);
+  var reduzir=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function filtrar(){ruidos.forEach(function(c){c.classList.add('ruido');});}
+  if(reduzir){filtrar();} else {setTimeout(filtrar,700);}
+})();
+</script>
+</body>
+</html>
